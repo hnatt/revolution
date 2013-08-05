@@ -477,10 +477,25 @@ MODx.combo.Browser = function(config) {
     MODx.combo.Browser.superclass.constructor.call(this,config);
     this.config = config;
 };
-Ext.extend(MODx.combo.Browser,Ext.form.TriggerField,{
+Ext.extend(MODx.combo.Browser,Ext.form.TwinTriggerField,{
     browser: null
+    ,uploadForm: new Ext.FormPanel({
+        fileUpload: true
+        ,frame: true
+        ,items: [{
+            xtype: 'field'
+            ,name: 'file'
+            ,inputType: 'file'
+        }]
+    })
+
+    ,trigger1Class: 'x-form-upload-trigger'
+
+    ,onTrigger1Click : function(btn){
+        alert('under construction');
+    }
     
-    ,onTriggerClick : function(btn){
+    ,onTrigger2Click : function(btn){
         if (this.disabled){
             return false;
         }
@@ -512,6 +527,7 @@ Ext.extend(MODx.combo.Browser,Ext.form.TriggerField,{
     
     ,onDestroy: function(){
         MODx.combo.Browser.superclass.onDestroy.call(this);
+        // TODO: destroy uploader too
     }
 });
 Ext.reg('modx-combo-browser',MODx.combo.Browser);

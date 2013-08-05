@@ -351,6 +351,9 @@ textarea.x-form-field, .x-form-textarea{
     border-right: 1px solid #C5C5C5 !important;
     border-top: 1px solid #C5C5C5 !important;
 }
+.x-small-editor .x-form-field-wrap .x-form-trigger.x-form-upload-trigger, .x-form-field-wrap .x-form-trigger.x-form-upload-trigger{
+    background-image: url(../images/modx-theme/form/upload-trigger.png);
+}
 
 /* fix combo on grid editor bug */
 .x-grid-editor .x-form-field-wrap {
