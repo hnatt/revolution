@@ -491,6 +491,19 @@ Ext.extend(MODx.combo.Browser,Ext.form.TwinTriggerField,{
 
     ,trigger1Class: 'x-form-upload-trigger'
 
+    ,afterRender : function(el) {
+        MODx.combo.Browser.superclass.afterRender.call(this);
+        var fileButton = this.triggers[0].dom;
+        var fileInput = document.createElement("input");
+        fileInput.type = "file";
+        fileInput.style.position = "absolute";
+        fileInput.style.opacity = 0;
+        // fileInput.style.zIndex = 2;
+        fileInput.style.right = "40px";
+        fileInput.style.width = "40px";
+        fileButton.parentNode.insertBefore(fileInput, fileButton);
+    }
+
     ,onTrigger1Click : function(btn){
         alert('under construction');
     }
@@ -527,7 +540,7 @@ Ext.extend(MODx.combo.Browser,Ext.form.TwinTriggerField,{
     
     ,onDestroy: function(){
         MODx.combo.Browser.superclass.onDestroy.call(this);
-        // TODO: destroy uploader too
+        // TODO: destroy uploader if needed
     }
 });
 Ext.reg('modx-combo-browser',MODx.combo.Browser);
