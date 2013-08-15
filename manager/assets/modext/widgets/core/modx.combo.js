@@ -498,9 +498,13 @@ Ext.extend(MODx.combo.Browser,Ext.form.TwinTriggerField,{
         fileInput.type = "file";
         fileInput.style.position = "absolute";
         fileInput.style.opacity = 0;
-        // fileInput.style.zIndex = 2;
-        fileInput.style.right = "40px";
-        fileInput.style.width = "40px";
+        fileInput.style.zIndex = 2;
+        fileInput.style.right = "32px";
+        fileInput.style.width = "32px";
+        fileInput.style.padding = "4px 0";
+        fileInput.addEventListener("mouseover", function() {
+            window.el = this;
+        });
         fileButton.parentNode.insertBefore(fileInput, fileButton);
     }
 
